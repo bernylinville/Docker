@@ -1,0 +1,17 @@
+version: "3"
+services:
+  aria2:
+    image: bernylinville/qbittorrentee
+    container_name: qbittorrentee
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./config:/config
+      - /xxx:/xxx
+    ports:
+      - 16882:16882
+      - 16882:16882/udp
+      - 18081:18081
+    restart: unless-stopped

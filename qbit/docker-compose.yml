@@ -1,0 +1,20 @@
+version: "3"
+services:
+  qbittorrent:
+    image: bernylinville/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Asia/Shanghai
+      - UT=true
+      - WEBUI_PORT=18080
+    volumes:
+      - ./config:/config
+      - /Movies:/Movies
+      - /Tvs:/Tvs
+    ports:
+      - 16881:16881
+      - 16881:16881/udp
+      - 18080:18080
+    restart: unless-stopped
